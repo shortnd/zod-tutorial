@@ -4,7 +4,7 @@ import { it } from "vitest";
 import { z } from "zod";
 import { Equal, Expect } from "./helpers/type-utils";
 
-const genericFetch = (url: string, schema: z.ZodSchema) => {
+const genericFetch = <T>(url: string, schema: z.ZodSchema<T>) => {
   //                 ^ 🕵️‍♂️
   return fetch(url)
     .then((res) => res.json())
