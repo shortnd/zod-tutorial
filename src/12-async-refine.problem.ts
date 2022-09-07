@@ -13,8 +13,7 @@ const doesStarWarsPersonExist = async (id: string) => {
 };
 
 const Form = z.object({
-  id: z.string(),
-  //           ^ 🕵️‍♂️
+  id: z.string().refine(doesStarWarsPersonExist, "Not found"),
 });
 
 export const validateFormInput = async (values: unknown) => {
